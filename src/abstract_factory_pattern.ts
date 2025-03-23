@@ -54,3 +54,16 @@ class MacFactory implements GUIFactory {
     return new MacCheckbox();
   }
 }
+
+function buildUI(factory: GUIFactory) {
+  const button = factory.createButton();
+  const CheckBox = factory.createCheckbox();
+
+  button.render();
+  CheckBox.render();
+}
+
+const isWindows = true; 
+
+const factory: GUIFactory = isWindows ? new WindowsFactory() : new MacFactory();
+buildUI(factory);
